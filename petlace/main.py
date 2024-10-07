@@ -7,6 +7,7 @@ from petlace.pages import MainPage
 class MainApplication(ctk.CTk):
     def __init__(self):
         super().__init__()
+        self.title('Petlace')
         self.geometry('1280x720+1920+0')
 
         MainPage(self).pack(side="top", fill="both", expand=True)
