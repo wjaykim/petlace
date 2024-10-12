@@ -1,5 +1,5 @@
 import io
-import threading
+from concurrent.futures import ThreadPoolExecutor
 
 import customtkinter as ctk
 import requests
@@ -7,14 +7,15 @@ from PIL import Image, ImageTk, ImageOps
 
 
 class WebImage(ctk.CTkCanvas):
+    executor = ThreadPoolExecutor(max_workers=5)
+
     def __init__(self, master, image_url:str, width: int, height: int):
         super().__init__(master=master, width=width, height=height, highlightthickness=0)
         self.image = None
 
         if image_url == '': return
 
-        thread = threading.Thread(target = self.process, args = (image_url, width, height))
-        thread.start()
+        WebImage.executor.submit(self.process, image_url=image_url, width=width, height=height)
 
     def process(self, image_url, width, height):
         raw_data = requests.get(image_url).content

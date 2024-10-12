@@ -9,7 +9,8 @@
     "corner_radius": 0,
     "border_width": 0,
     "fg_color": "transparent",
-    "border_color": "gray65"
+    "border_color": "gray65",
+    "top_fg_color": "transparent"
   },
   "CTkButton": {
     "corner_radius": 6,
