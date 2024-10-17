@@ -9,7 +9,7 @@ from .page import Page
 
 
 class ListPage(Page):
-    def __init__(self, master, places: pd.DataFrame):
+    def __init__(self, master, places: pd.DataFrame, query = '목록'):
         super().__init__(master)
 
         left_panel = ctk.CTkFrame(self)
@@ -21,7 +21,7 @@ class ListPage(Page):
         back_button = BackButton(toolbar, router=self.router)
         back_button.pack(side=ctk.LEFT, anchor=ctk.W, padx=8, pady=8)
 
-        title = ctk.CTkLabel(toolbar, text="목록", font=('Roboto Bold', 16), justify=ctk.CENTER)
+        title = ctk.CTkLabel(toolbar, text=query, font=('Roboto Bold', 16), justify=ctk.CENTER)
         title.pack(side=ctk.LEFT, anchor=ctk.W, expand=True, fill=ctk.X)
 
         dummy_label = ctk.CTkLabel(toolbar, width=28, height=28, text='')
