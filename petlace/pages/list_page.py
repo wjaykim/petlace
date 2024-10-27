@@ -45,11 +45,6 @@ class ListPage(Page):
         self.map_widget = tkintermapview.TkinterMapView(self)
         self.map_widget.pack(fill=ctk.BOTH, expand=True)
 
-         # 한국 범위의 타일 서버 URL 설정
-        tile_server_url = "http://api.vworld.kr/req/wmts/1.0.0/{your-api-key}/Base/{z}/{y}/{x}.png"
-        tile_size = 256  # 타일 크기 설정
-        self.map_widget.set_tile_server(tile_server_url, tile_size=tile_size)
-
         # 처음에 장소 목록을 표시
         self.display_places()
 
