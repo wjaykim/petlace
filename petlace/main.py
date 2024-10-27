@@ -1,3 +1,10 @@
+"""메인 구동 파일. 기본 프레임과 프로그램 실행&종료 관련 설정."""
+import os
+import sys
+
+# Windows에서만 발생하는 오류 수정
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 import customtkinter as ctk
 from dotenv import load_dotenv
 
@@ -34,7 +41,10 @@ app = None
 def launch():
     global app
     ctk.set_appearance_mode('light')
-    ctk.set_default_color_theme("./theme.json")
+
+    theme_path = os.path.join(os.path.dirname(__file__), 'theme.json')
+    ctk.set_default_color_theme(theme_path)
+
     app = MainApplication()
     app.mainloop()
 

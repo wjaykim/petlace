@@ -1,3 +1,4 @@
+"""places 파일에서 Image_url로 웹에서 이미지 추출"""
 import io
 from concurrent.futures import ThreadPoolExecutor
 

@@ -1,2 +1,2 @@
-from .application import Application, findApplication
+from .application import Application, find_application
 from .router import Router

@@ -1,3 +1,4 @@
+"""페이지 전환을 stack type으로 관리함."""
 class Router:
     def __init__(self):
         self.pages = []

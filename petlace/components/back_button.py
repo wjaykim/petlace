@@ -1,3 +1,4 @@
+"""뒤로가기 버튼"""
 from pathlib import Path
 
 import customtkinter as ctk

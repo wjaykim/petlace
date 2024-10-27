@@ -1,3 +1,4 @@
+"""1번째 페이지. 장소 필터링."""
 import customtkinter as ctk
 
 from petlace.data import places
@@ -26,10 +27,10 @@ class MainPage(Page):
         search_button.pack(side=ctk.TOP, anchor=ctk.W)
 
     def __on_click_search(self):
+        addr1 = self.combo_addr1.get()
         addr2 = self.combo_addr2.get()
-        print(addr2)
         list_page = ListPage(self.master,
-                             places=places[places['addr2'] == addr2].head(10),
+                             places=places[(places['addr1'] == addr1) & (places['addr2'] == addr2)].head(10),
                              query=f"{addr2} 목록")
         self.router.push(list_page)
 
