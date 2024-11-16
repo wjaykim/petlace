@@ -18,6 +18,7 @@ places.rename(columns={
     '전화번호': 'callNum',
     '홈페이지': 'webSite',
     '운영시간': 'openTime',
+    '주차 가능여부': 'parking',
     '입장 가능 동물 크기': 'petSize',
     '반려동물 제한사항': 'petRule',
     '애견 동반 추가 요금': 'extraFee'

@@ -16,13 +16,15 @@ class ListPage(Page):
         self.places = places  # 전체 장소 데이터를 저장
         self.filtered_places = places  # 필터된 장소 데이터를 따로 저장
 
-        left_panel = ctk.CTkFrame(self)
-        left_panel.pack(side=ctk.LEFT, anchor=ctk.W, fill=ctk.Y)
+        bottom_panel = ctk.CTkFrame(self)
+        bottom_panel.pack(side=ctk.BOTTOM, anchor=ctk.W, fill=ctk.X)
 
-        toolbar = ctk.CTkFrame(left_panel)
+        toolbar = ctk.CTkFrame(bottom_panel)
         toolbar.pack(side=ctk.TOP, fill=ctk.X)
 
-        back_button = BackButton(toolbar, router=self.router)
+        back_button_frame = ctk.CTkFrame(self)
+        back_button_frame.pack(side=ctk.TOP, anchor=ctk.W)
+        back_button = BackButton(back_button_frame, router=self.router)
         back_button.pack(side=ctk.LEFT, anchor=ctk.W, padx=8, pady=8)
 
         #제목 생성('~ 목록')
@@ -39,7 +41,7 @@ class ListPage(Page):
         dummy_label = ctk.CTkLabel(toolbar, width=28, height=28, text='')
         dummy_label.pack(side=ctk.LEFT, anchor=ctk.W, padx=8, pady=8)
 
-        self.place_list_frame = ctk.CTkScrollableFrame(left_panel, width=320, fg_color='#F0F0F3')
+        self.place_list_frame = ctk.CTkScrollableFrame(bottom_panel, width=320, fg_color='#F0F0F3')
         self.place_list_frame.pack(side=ctk.TOP, expand=True, fill=ctk.BOTH)
 
         self.map_widget = tkintermapview.TkinterMapView(self)
@@ -78,7 +80,7 @@ class ListPage(Page):
         # 새로운 장소 목록을 표시
         for place in self.filtered_places.itertuples():
             card = PlaceCard(self.place_list_frame, place)
-            card.pack(side=ctk.TOP, anchor=ctk.W, pady=4)
+            card.pack(side=ctk.TOP, anchor=ctk.W, pady=4, fill=ctk.X)
 
             lon_list.append(place.lon)
             lat_list.append(place.lat)

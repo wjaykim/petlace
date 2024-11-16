@@ -17,11 +17,11 @@ class PlaceCard(ctk.CTkFrame):
                                 font=('Roboto', 14), text_color='gray52')
         category.pack(side=ctk.TOP, anchor=ctk.W, padx=16)
 
-        image = WebImage(self, place.image_url, 300, 200)
-        image.pack(side=ctk.TOP, anchor=ctk.W, padx=16, pady=(8, 16))
+        # image = WebImage(self, place.image_url, 300, 200)
+        # image.pack(side=ctk.TOP, anchor=ctk.W, padx=16, pady=(8, 16))
 
         # 이벤트 전파를 위해 모든 위젯과 프레임에 바인딩
-        for widget in (self, title, category, image):
+        for widget in (self, title, category):
             widget.bind("<Button-1>", self.__on_click)
 
     def __on_click(self, event=None):

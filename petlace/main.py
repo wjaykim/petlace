@@ -20,7 +20,7 @@ class MainApplication(Application):
         self.__router.add_page_change_listener(self.__on_page_change)
 
         self.title('Petlace')
-        self.geometry('1280x720+0+0')
+        self.geometry('375x667+0+0')
 
         self.root_frame = ctk.CTkFrame(self)
         self.root_frame.pack(side=ctk.TOP, fill=ctk.BOTH, expand=True)
