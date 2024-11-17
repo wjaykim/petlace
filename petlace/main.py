@@ -3,17 +3,16 @@ import os
 import sys
 from threading import Timer
 
-from petlace.components import MainLogo
-from petlace.utils import get_file
+import customtkinter as ctk
+from dotenv import load_dotenv
 
 # Windows에서만 발생하는 오류 수정
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-import customtkinter as ctk
-from dotenv import load_dotenv
-
+from petlace.components import MainLogo
 from petlace.models import Application, Router
 from petlace.pages import Page, MainPage
+from petlace.utils import get_file
 
 load_dotenv(dotenv_path='../.env')
 

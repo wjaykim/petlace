@@ -1,5 +1,6 @@
 """ListPage에서 PlacePage로 연결해주는 장소 카드. ListPage 좌측 toolbar에서 정렬됨."""
 import customtkinter as ctk
+from sys import platform
 
 from petlace.models import find_application
 from .web_image import WebImage
@@ -7,7 +8,7 @@ from .web_image import WebImage
 
 class PlaceCard(ctk.CTkFrame):
     def __init__(self, master, place):
-        super().__init__(master, fg_color='white', cursor='pointinghand')
+        super().__init__(master, fg_color='white', cursor='pointinghand' if platform == 'darwin' else 'hand2')
         self.place=place
 
         title = ctk.CTkLabel(self, text=place.name, font=('Roboto Bold', 16))
