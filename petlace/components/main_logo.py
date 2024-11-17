@@ -10,8 +10,7 @@ class MainLogo(ctk.CTkFrame):
         
         # 이미지 경로 설정 및 로드
         logo_image = Image.open(str(Path(__file__).resolve().parent.parent) + "/assets/logo.png")
-        logo_width, logo_height = logo_image.size
-        self.original_logo_image = logo_image.resize((int(logo_width * 0.7), int(logo_height * 0.7)), Image.Resampling.LANCZOS)
+        self.original_logo_image = logo_image.resize((200, 200), Image.Resampling.LANCZOS)
         self.logo_image = self.original_logo_image.copy()
         self.logo = ImageTk.PhotoImage(self.logo_image)
         

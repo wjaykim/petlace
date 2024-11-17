@@ -2,7 +2,6 @@
 import customtkinter as ctk
 
 from petlace.data import places
-from petlace.components import MainLogo
 from .list_page import ListPage
 from .page import Page
 
@@ -10,9 +9,6 @@ from .page import Page
 class MainPage(Page):
     def __init__(self, master):
         super().__init__(master)
-
-        # logo = MainLogo(self)
-        # logo.pack(side=ctk.TOP, anchor=ctk.CENTER, pady=(80,30))
 
         text = ctk.CTkLabel(self, text='어느 지역을 여행하시나요?', font=('Roboto Bold', 16))
         text.pack(side=ctk.TOP, anchor=ctk.CENTER, pady=(30,20))
