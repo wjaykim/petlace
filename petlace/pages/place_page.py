@@ -14,22 +14,19 @@ class PlacePage(Page):
         back_filter_1 = BackButton(self, router=self.router)
         back_filter_1.pack(side=ctk.TOP, anchor=ctk.W, padx=8, pady=8)
 
-        content = ctk.CTkScrollableFrame(self)
-        content.pack(side=ctk.TOP, anchor=ctk.W, expand=True, fill=ctk.BOTH)
-
         # 이미지
-        image = WebImage(content, place.image_url, 700, 400)
-        image.pack(side=ctk.TOP, anchor=ctk.W)
+        image = WebImage(self, place.image_url, master.winfo_width(), int(master.winfo_width() / 16 * 9))
+        image.pack(side=ctk.TOP, anchor=ctk.W, fill=ctk.X)
 
         # 장소
-        title = ctk.CTkLabel(content, text=place.name, font=('Roboto Bold', 16))
+        title = ctk.CTkLabel(self, text=place.name, font=('Roboto Bold', 16))
         title.pack(side=ctk.TOP, anchor=ctk.W, padx=16, pady=(16, 0))
 
-        address = ctk.CTkLabel(content, text=place.addr, font=('Roboto', 14), text_color='gray52', justify='left', wraplength=350)
+        address = ctk.CTkLabel(self, text=place.addr, font=('Roboto', 14), text_color='gray52', justify='left', wraplength=350)
         address.pack(side=ctk.TOP, anchor=ctk.W, padx=16)
         
         #필터 표시
-        filter_frame = ctk.CTkFrame(content)
+        filter_frame = ctk.CTkFrame(self)
         filter_frame.pack(side=ctk.TOP, anchor=ctk.W, padx=16, pady=8)
 
         filter_1 = AvailabilityLabel(filter_frame, text_yes="주차 가능", text_no="주차 불가능", available=place.parking == "Y")
@@ -42,7 +39,7 @@ class PlacePage(Page):
         filter_3.pack(side=ctk.LEFT, padx=(0, 8))
 
         # 상세설명
-        category = ctk.CTkLabel(content, text=
+        category = ctk.CTkLabel(self, text=
                                 f"전화번호: {place.callNum} \n"
                                 f"운영시간: {place.openTime} \n"
                                 f"길찾기: {place.nmap_url} \n"
@@ -50,14 +47,14 @@ class PlacePage(Page):
                                 font=('Roboto', 14), text_color='gray52', justify='left')
         category.pack(side=ctk.TOP, anchor=ctk.W, padx=16)
 
-        homepage = ctk.CTkLabel(content, text=f"홈페이지: {place.webSite}", font=('Roboto', 14), text_color='blue', justify='left')
+        homepage = ctk.CTkLabel(self, text=f"홈페이지: {place.webSite}", font=('Roboto', 14), text_color='blue', justify='left')
         homepage.pack(side=ctk.TOP, anchor=ctk.W, padx=16)
 
         if place.petSize != "모두 가능":
-            petsize = ctk.CTkLabel(content, text=f"입장 가능 동물 크기: {place.petSize}", font=('Roboto', 14), text_color='gray52', justify='left')
+            petsize = ctk.CTkLabel(self, text=f"입장 가능 동물 크기: {place.petSize}", font=('Roboto', 14), text_color='gray52', justify='left')
             petsize.pack(side=ctk.TOP, anchor=ctk.W, padx=16)
         if place.extraFee != "없음":
-            extrafee = ctk.CTkLabel(content, text=f"애견 동반 추가 요금: {place.extraFee}", font=('Roboto', 14), text_color='gray52', justify='left')
+            extrafee = ctk.CTkLabel(self, text=f"애견 동반 추가 요금: {place.extraFee}", font=('Roboto', 14), text_color='gray52', justify='left')
             extrafee.pack(side=ctk.TOP, anchor=ctk.W, padx=16)
 
         

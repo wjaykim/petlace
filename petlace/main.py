@@ -24,6 +24,7 @@ class MainApplication(Application):
 
         self.title('Petlace')
         self.geometry('375x667+0+0')
+        self.resizable(False, False)
 
         self.root_frame = ctk.CTkFrame(self)
         self.root_frame.pack(side=ctk.TOP, fill=ctk.BOTH, expand=True)
