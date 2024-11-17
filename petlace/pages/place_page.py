@@ -30,17 +30,17 @@ class PlacePage(Page):
         filter_frame = ctk.CTkFrame(self)
         filter_frame.pack(side=ctk.TOP, anchor=ctk.W, pady=8)
 
-        filter_1 = ctk.CTkButton(filter_frame, text="주차 가능")
-        filter_1.pack(side=ctk.LEFT, pady=5)
-        filter_1.configure(fg_color="blue" if place.parking == "Y" else "gray")
+        filter_1 = ctk.CTkButton(filter_frame, text="주차 가능", text_color='black', border_width=2, border_color='#3a7ebf', width=100)
+        filter_1.pack(side=ctk.LEFT, padx=5)
+        filter_1.configure(fg_color='white' if place.parking == "Y" else "gray")
 
-        filter_2 = ctk.CTkButton(filter_frame, text="대형견 가능")
-        filter_2.pack(side=ctk.LEFT, pady=5)
-        filter_2.configure(fg_color="blue" if place.petSize == "모두 가능" else "gray")
+        filter_2 = ctk.CTkButton(filter_frame, text="대형견 가능", text_color='black', border_width=2, border_color='#3a7ebf', width=100)
+        filter_2.pack(side=ctk.LEFT, padx=5)
+        filter_2.configure(fg_color='white' if place.petSize == "모두 가능" else "gray")
 
-        filter_1 = ctk.CTkButton(filter_frame, text="추가요금 없음")
-        filter_1.pack(side=ctk.LEFT, pady=5)
-        filter_1.configure(fg_color="blue" if place.extraFee == "없음" else "gray")
+        filter_1 = ctk.CTkButton(filter_frame, text="추가요금 없음", text_color='black', border_width=2, border_color='#3a7ebf', width=100)
+        filter_1.pack(side=ctk.LEFT, padx=5)
+        filter_1.configure(fg_color='white' if place.extraFee == "없음" else "gray")
 
         # 상세설명
         category = ctk.CTkLabel(self, text=

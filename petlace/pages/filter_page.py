@@ -1,7 +1,6 @@
 import customtkinter as ctk
 import pandas as pd
 
-from petlace.data import places
 from petlace.components import MainLogo, BackButton
 from .page import Page
 from .list_page import ListPage
@@ -51,9 +50,9 @@ class FilterPage(Page):
 
     def __initialize_filter_button(self, parent, text, command, active=False):
         """필터 버튼을 초기화하고 기본 상태를 설정하는 헬퍼 메서드"""
-        button = ctk.CTkButton(parent, text=text, command=command)
-        button.pack(side=ctk.LEFT, pady=5)
-        button.configure(fg_color="blue" if active else "gray")
+        button = ctk.CTkButton(parent, text=text, command=command, fg_color='white', text_color='black', border_width=2)
+        button.pack(side=ctk.LEFT, padx=5)
+        button.configure(border_color="#FFA500" if active else "#3a7ebf")
         return button
 
     def __toggle_filter(self, filter_name, button, condition_column, condition_value):
@@ -61,7 +60,7 @@ class FilterPage(Page):
         filter_active_attr = f"{filter_name}_active"
         is_active = getattr(self, filter_active_attr)
         setattr(self, filter_active_attr, not is_active)
-        button.configure(fg_color="blue" if not is_active else "gray")
+        button.configure(border_color="#FFA500" if not is_active else "#3a7ebf")
         
         if not is_active:
             setattr(self, filter_name, (self.places[condition_column] == condition_value))
@@ -73,29 +72,29 @@ class FilterPage(Page):
     def __deactivate_filter4(self):
         # 다른 필터가 활성화되면 filter4 비활성화
         self.filter4_active = False
-        self.filter_button4.configure(fg_color="gray")
+        self.filter_button4.configure(border_color="#3a7ebf")
 
     def __check_all_filters(self):
         # 모든 필터가 비활성화되면 filter4 활성화
         if not self.filter1_active and not self.filter2_active and not self.filter3_active:
             self.filter4_active = True
-            self.filter_button4.configure(fg_color="blue")
+            self.filter_button4.configure(border_color="#FFA500")
 
     def __reset_filters(self):
         # 모든 필터 초기화 및 다른 필터 버튼 비활성화
         self.filter1_active = False
         self.filter2_active = False
         self.filter3_active = False
-        self.filter_button1.configure(fg_color="gray")
-        self.filter_button2.configure(fg_color="gray")
-        self.filter_button3.configure(fg_color="gray")
+        self.filter_button1.configure(border_color="#3a7ebf")
+        self.filter_button2.configure(border_color="#3a7ebf")
+        self.filter_button3.configure(border_color="#3a7ebf")
         self.filter1 = pd.Series([True] * len(self.places), index=self.places.index)
         self.filter2 = pd.Series([True] * len(self.places), index=self.places.index)
         self.filter3 = pd.Series([True] * len(self.places), index=self.places.index)
 
         # filter_button4 활성화
         self.filter4_active = True
-        self.filter_button4.configure(fg_color="blue")
+        self.filter_button4.configure(border_color="#FFA500")
 
     def __on_click_search(self):
         # 필터링된 장소를 검색

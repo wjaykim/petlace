@@ -93,11 +93,11 @@
   "CTkComboBox": {
     "corner_radius": 6,
     "border_width": 2,
-    "fg_color": "#F9F9FA",
-    "border_color": "#979DA2",
-    "button_color": "#979DA2",
-    "button_hover_color": "#6E7174",
-    "text_color": "gray14",
+    "fg_color": "white",
+    "border_color": "#3a7ebf",
+    "button_color": "#3a7ebf",
+    "button_hover_color": "blue",
+    "text_color": "black",
     "text_color_disabled": "gray50"
   },
   "CTkScrollbar": {
@@ -131,7 +131,7 @@
     "label_fg_color": "gray80"
   },
   "DropdownMenu": {
-    "fg_color": "gray90",
+    "fg_color": "white",
     "hover_color": "gray75",
     "text_color": "gray14"
   },
