@@ -1,6 +1,7 @@
 customtkinter==5.2.2
 pandas==2.2.3
 pillow==10.4.0
+pyinstaller==6.11.1
 python-dotenv==1.0.1
 requests==2.32.3
 future~=1.0.0

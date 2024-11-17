@@ -5,4 +5,8 @@
 # PyCharm
 .idea
 
+# Build Outputs
+build
+dist
+
 __pycache__

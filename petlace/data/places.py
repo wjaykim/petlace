@@ -1,9 +1,9 @@
 """places.csv 파일에서 장소에 대한 정보를 추출함."""
-from pathlib import Path
-
 import pandas as pd
 
-places = pd.read_csv(str(Path(__file__).resolve().parent) + '/places.csv')
+from petlace.utils import get_file
+
+places = pd.read_csv(get_file("data/places.csv"))
 places = places[ places['반려동물 동반 가능정보']=='Y']
 places.rename(columns={
     '시설명': 'name',

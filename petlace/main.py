@@ -4,6 +4,7 @@ import sys
 from threading import Timer
 
 from petlace.components import MainLogo
+from petlace.utils import get_file
 
 # Windows에서만 발생하는 오류 수정
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -56,7 +57,7 @@ def launch():
     global app
     ctk.set_appearance_mode('light')
 
-    theme_path = os.path.join(os.path.dirname(__file__), 'theme.json')
+    theme_path = get_file('theme.json')
     ctk.set_default_color_theme(theme_path)
 
     app = MainApplication()
