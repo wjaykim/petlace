@@ -18,11 +18,14 @@ class PlacePage(Page):
         image = WebImage(self, place.image_url, master.winfo_width(), int(master.winfo_width() / 16 * 9))
         image.pack(side=ctk.TOP, anchor=ctk.W, fill=ctk.X)
 
+        image_label = ctk.CTkLabel(self, text='사진을 클릭하면 네이버 지도로 연결됩니다', font=('Roboto Bold', 10))
+        image_label.pack(side=ctk.TOP, anchor=ctk.W, padx=16)
+
         # 장소
         title = ctk.CTkLabel(self, text=place.name, font=('Roboto Bold', 16))
         title.pack(side=ctk.TOP, anchor=ctk.W, padx=16, pady=(16, 0))
 
-        address = ctk.CTkLabel(self, text=place.addr, font=('Roboto', 14), text_color='gray52', justify='left', wraplength=350)
+        address = ctk.CTkLabel(self, text=f"{place.category3} · {place.addr}", font=('Roboto', 14), text_color='gray52', justify='left', wraplength=350)
         address.pack(side=ctk.TOP, anchor=ctk.W, padx=16)
         
         #필터 표시
@@ -42,7 +45,6 @@ class PlacePage(Page):
         category = ctk.CTkLabel(self, text=
                                 f"전화번호: {place.callNum} \n"
                                 f"운영시간: {place.openTime} \n"
-                                f"길찾기: {place.nmap_url} \n"
                                 f"반려동물 제한사항: {place.petRule} \n",
                                 font=('Roboto', 14), text_color='gray52', justify='left')
         category.pack(side=ctk.TOP, anchor=ctk.W, padx=16)
